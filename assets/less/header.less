@@ -1,0 +1,28 @@
+@import 'blocks.less';
+
+#mobile-menu {
+  display: none;
+
+  @media @small-screen {
+    display: block;
+  }
+}
+
+#desktop-menu {
+  display: block;
+
+  @media @small-screen {
+    display: none;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  list-style: none;
+  transition: 1s all;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
