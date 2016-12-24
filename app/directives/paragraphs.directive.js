@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function($compile) {
   return {
     restrict: 'E',
     transclude: true,
@@ -12,7 +12,9 @@ module.exports = function() {
           element.empty();
           var paragraphs = scope.text.split('\n');
           paragraphs.forEach(function(paragraph) {
-            element.append('<p class="' + scope.classname + '">' + paragraph + '</p>');
+            var paragraph = angular.element('<marked class="' + scope.classname + '">' + paragraph + '</marked>');
+            element.append(paragraph);
+            $compile(paragraph)(scope);
           });
         }
       });

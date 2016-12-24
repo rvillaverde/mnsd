@@ -4,18 +4,20 @@ var angular = require('angular');
 var uibs = require('angular-ui-bootstrap');
 
 require('angular-translate');
+require('marked');
+require('angular-marked');
 
 var langEn = require('./assets/js/lang/en.js');
 var langEs = require('./assets/js/lang/es.js');
 var langIt = require('./assets/js/lang/it.js');
 
-var manusdeiApp = angular.module('manusdeiApp', [uibs, 'pascalprecht.translate']);
+var manusdeiApp = angular.module('manusdeiApp', [uibs, 'pascalprecht.translate', 'hc.marked']);
 
 var manusdeiController = require('./app/controllers/manusdei.controller.js');
 var paragraphsDirective = require('./app/directives/paragraphs.directive.js');
 
 manusdeiApp.controller('manusdeiController', manusdeiController);
-manusdeiApp.directive('paragraphs', paragraphsDirective);
+manusdeiApp.directive('paragraphs', ['$compile', paragraphsDirective]);
 
 manusdeiApp.config(['$translateProvider', function($translateProvider) {
   $translateProvider.translations('es', langEs);
