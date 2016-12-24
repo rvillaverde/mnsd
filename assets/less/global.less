@@ -115,15 +115,15 @@ h2.major {
 
 #background {
   background-image: url("assets/images/background-web.png");
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -999999999;
-  height: 100%;
-  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -999999999;
 
   @media screen and (max-width: 320px) {
     background-image: url("assets/images/background-mobile.png");
@@ -154,7 +154,8 @@ h2.major {
 
 .outer-border {
   border: 2px solid #5C2825;
-  padding: 3px;
   display: inline-block;
   margin: 0 auto;
+  padding: 3px;
+  width: 100%;
 }

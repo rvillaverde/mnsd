@@ -2686,6 +2686,8 @@
 		-moz-transition: -moz-filter 0.25s ease;
 		-webkit-transition: -webkit-filter 0.25s ease;
 		-ms-transition: -ms-filter 0.25s ease;
+    max-width: 64em;
+    margin: 0 auto;
 		transition: filter 0.25s ease;
 	}
 
@@ -3112,7 +3114,7 @@
 		.wrapper .inner {
 			padding: 4em 5em;
 			margin: 0 auto;
-			max-width: 65em;
+			width: 100%;
 			background-color: rgba(255, 255, 255, 0.6);
 		}
 
@@ -3174,7 +3176,7 @@
 				}
 
 				.wrapper .inner {
-					padding: 3em 3em 1em 3em ;
+					padding: 3em;
 					width: 100%;
 				}
 
@@ -3209,7 +3211,7 @@
 				}
 
 				.wrapper .inner {
-					padding: 2em 2em 0.1em 2em ;
+					padding: 2em;
 				}
 
 				.wrapper.spotlight .inner {
@@ -3268,7 +3270,7 @@
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		max-width: 65em;
+		width: 100%;
 		background-color: rgba(255, 255, 255, 0.5);
 		padding: 4em 5em;
 	}
