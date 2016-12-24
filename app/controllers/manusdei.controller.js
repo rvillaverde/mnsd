@@ -1,5 +1,16 @@
-module.exports = ['$scope', '$http', '$translate',
-  function($scope, $http, $translate) {
+module.exports = ['$scope', '$http', '$translate', 'newsService',
+  function($scope, $http, $translate, newsService) {
+
+    $scope.loadingNews = true;
+    newsService.getNews()
+    .then(function(news) {
+      $scope.news = news;
+      console.log(news);
+      $scope.loading = true;
+      if(!$scope.$$phase) {
+        $scope.$apply();
+      }
+    });
 
     $scope.supportedLanguages = {
       es: 'Español',

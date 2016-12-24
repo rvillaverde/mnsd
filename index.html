@@ -141,13 +141,15 @@
           <div class="outer-border">
             <div class="inner border">
               <div class="content">
-                <div class="news-wrapper">
+                <div class="news-section-wrapper">
                   <h2 class="major">{{ 'news' | translate }}</h2>
-                  <div class="news-header">
-                    <span class="news-date">23/12/2016</span>
-                    <span class="news-title">Lanzamiento</span>
+                  <div class="news-wrapper" ng-repeat="item in news | filter:{ lang: selectedLanguage }">
+                    <div class="news-header">
+                      <span class="news-date">{{ item.fecha }}</span>
+                      <span class="news-title">{{ item.titulo }}</span>
+                    </div>
+                    <paragraphs data-text="item.texto" classname="paragraph"></paragraphs>
                   </div>
-                  <p class="news-text">Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
                 </div>
               </div>
             </div>
