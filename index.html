@@ -113,33 +113,42 @@
       <section id="wrapper">
         <!-- One -->
         <section id="libro" class="wrapper spotlight style1">
-          <div class="inner">
-            <div class="content">
-              <h2 class="major">{{ 'about_book' | translate }}</h2>
-              <paragraphs data-text="'about_book.text' | translate" classname="paragraph"></paragraphs>
+          <div class="outer-border">
+            <div class="inner border">
+              <div class="content">
+                <h2 class="major">{{ 'about_book' | translate }}</h2>
+                <paragraphs data-text="'about_book.text' | translate" classname="paragraph"></paragraphs>
+              </div>
             </div>
           </div>
         </section>
 
         <!-- Two -->
         <section id="autora" class="wrapper alt spotlight style2">
-          <div class="inner">
-            <div class="content">
-              <h2 class="major">{{ 'about_writer' | translate }}</h2>
-              <paragraphs data-text="'about_writer.text' | translate" classname="paragraph"></paragraphs>
+          <div class="outer-border">
+            <div class="inner border">
+              <div class="content">
+                <h2 class="major">{{ 'about_writer' | translate }}</h2>
+                <paragraphs data-text="'about_writer.text' | translate" classname="paragraph"></paragraphs>
+              </div>
+              <div class="author-photo"></div>
             </div>
-            <div class="author-photo"></div>
           </div>
         </section>
 
         <!-- Three -->
         <section id="noticias" class="wrapper spotlight style3">
-          <div class="inner">
-            <div class="content">
-              <div class="news-wrapper">
-                <h2 class="major">{{ 'news' | translate }}</h2>
-                <p class="news-date">23/12/2016</p>
-                <p class="news-text">Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+          <div class="outer-border">
+            <div class="inner border">
+              <div class="content">
+                <div class="news-wrapper">
+                  <h2 class="major">{{ 'news' | translate }}</h2>
+                  <div class="news-header">
+                    <span class="news-date">23/12/2016</span>
+                    <span class="news-title">Lanzamiento</span>
+                  </div>
+                  <p class="news-text">Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -148,38 +157,40 @@
 
       <!-- Footer -->
       <section id="footer">
-        <div class="inner">
-          <h2 class="major">{{ 'contact' | translate }}</h2>
-          <p class="contact-text">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            Podés contactarnos escribiendo a: 
-            <a href="#">manusdei@manusdei.com.ar</a>
-            o a través de nuestro formulario de contacto.
-          </p>
-          <form ng-submit="sendContactEmail()">
-            <div class="field-wrapper">
-              <div class="field">
-                <label for="name">{{ 'contact.name' | translate }}</label>
-                <input type="text" name="name" id="name" ng-model="contact.name"/>
+        <div class="outer-border">
+          <div class="inner border">
+            <h2 class="major">{{ 'contact' | translate }}</h2>
+            <p class="contact-text">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              Podés contactarnos escribiendo a: 
+              <a href="#">manusdei@manusdei.com.ar</a>
+              o a través de nuestro formulario de contacto.
+            </p>
+            <form ng-submit="sendContactEmail()">
+              <div class="field-wrapper">
+                <div class="field">
+                  <label for="name">{{ 'contact.name' | translate }}</label>
+                  <input type="text" name="name" id="name" ng-model="contact.name"/>
+                </div>
+                <div class="field">
+                  <label for="email">{{ 'contact.email' | translate }}</label>
+                  <input type="email" name="email" id="email" ng-model="contact.email"/>
+                </div>
               </div>
-              <div class="field">
-                <label for="email">{{ 'contact.email' | translate }}</label>
-                <input type="email" name="email" id="email" ng-model="contact.email"/>
+              <div class="field-wrapper">
+                <div class="field">
+                  <label for="message">{{ 'contact.message' | translate }}</label>
+                  <textarea name="message" id="message" rows="4" ng-model="contact.message"></textarea>
+                </div>
               </div>
+              <ul class="actions">
+                <li><input type="submit" ng-value="'contact.send' | translate"/></li>
+              </ul>
+            </form>
+            <div class="confirmation-message">
+              <p class="success-message initially-hidden">Gracias por escribirnos! Tu mensaje fue enviado con éxito, te contactaremos en breve.</p>
+              <p class="error-message initially-hidden">Hubo un error al enviar su mensaje. Por favor inténtelo nuevamente más tarde.</p>
             </div>
-            <div class="field-wrapper">
-              <div class="field">
-                <label for="message">{{ 'contact.message' | translate }}</label>
-                <textarea name="message" id="message" rows="4" ng-model="contact.message"></textarea>
-              </div>
-            </div>
-            <ul class="actions">
-              <li><input type="submit" ng-value="'contact.send' | translate"/></li>
-            </ul>
-          </form>
-          <div class="confirmation-message">
-            <p class="success-message initially-hidden">Gracias por escribirnos! Tu mensaje fue enviado con éxito, te contactaremos en breve.</p>
-            <p class="error-message initially-hidden">Hubo un error al enviar su mensaje. Por favor inténtelo nuevamente más tarde.</p>
           </div>
         </div>
       </section>
