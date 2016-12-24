@@ -6,15 +6,19 @@
 -->
 <html>
   <head>
-    <title>Solid State by HTML5 UP</title>
+    <title>Manus Dei</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--<meta name="google-site-verification" content="t-8Q73UITW1VtoheuXbSWTXSIRId0Q7awkT-asJ0gYo" />-->
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="assets/css/main.css" />
   
     <script type="text/javascript" src="/dist/bundle.js"></script>
     <link rel="stylesheet" href="/dist/bundle.css">
-
 
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -24,128 +28,161 @@
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/favicon/manifest.json">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="Manus Dei">
+    <meta property="og:description" content="Cómo acceder a nuestra Esencia Divina">
+    <meta property="og:image" content="http://www.manusdei.com.ar/assets/images/icon.png">
+    <meta property="og:url" content="http://www.manusdei.com.ar">
   </head>
-  <body>
+  <body ng-app="manusdeiApp" ng-controller="manusdeiController">
+    <div id='background'></div>
+
     <!-- Page Wrapper -->
     <div id="page-wrapper">
-
       <!-- Header -->
-        <header id="header" class="alt">
-          <h1><a href="index.html">Manus Dei</a></h1>
-          <nav id="mobile-menu">
-            <a href="#menu">Menu</a>
-          </nav>
-          <nav id="desktop-menu">
-            <ul>
-              <li class="menu-item"><a href="#libro">Sobre el libro</a></li>
-              <li class="menu-item"><a href="#autora">Sobre la autora</a></li>
-              <li class="menu-item"><a href="#noticias">Noticias</a></li>
-              <li class="menu-item"><a href="#footer">Contacto</a></li>
-            </ul>
-          </nav>
-        </header>
+      <header id="header" class="alt">
+        <h1><a href="index.html">Manus Dei</a></h1>
+        <nav id="mobile-menu">
+          <a href="#menu">Menu</a>
+        </nav>
+        <nav id="desktop-menu">
+          <ul>
+            <li class="menu-item"><a href="#libro">{{ 'about_book' | translate }}</a></li>
+            <li class="menu-item"><a href="#autora">{{ 'about_writer' | translate }}</a></li>
+            <li class="menu-item"><a href="#noticias">{{ 'news' | translate }}</a></li>
+            <li class="menu-item"><a href="#footer">{{ 'contact' | translate }}</a></li>
+            <li class="menu-item dropdown" uib-dropdown>
+              <a class="language-link" uib-dropdown-toggle>
+                <i class="fa fa-flag" aria-hidden="true"></i>
+                {{ selectedLanguage }}
+                <i class="arrow-icon fa fa-angle-down" aria-hidden="true"></i>
+              </a>
+
+              <ul uib-dropdown-menu class="language-dropdown-menu">
+                <li class="language-dropdown-item" ng-repeat="supportedLanguage in supportedLanguages | keys">
+                  <a class="language-dropdown-link" ng-click="changeLanguage(supportedLanguage)">{{ supportedLanguages[supportedLanguage] }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
       <!-- Menu -->
-        <nav id="menu">
-          <div class="inner">
-            <h2>Menu</h2>
-            <ul class="links">
-              <li><a href="#libro">Sobre el libro</a></li>
-              <li><a href="#autora">Sobre la autora</a></li>
-              <li><a href="#noticias">Noticias</a></li>
-              <li><a href="#footer">Contacto</a></li>
-            </ul>
-            <a href="#" class="close">Close</a>
-          </div>
-        </nav>
+      <nav id="menu">
+        <div class="inner">
+          <h2>Menu</h2>
+          <ul class="links">
+            <li><a href="#libro">{{ 'about_book' | translate }}</a></li>
+            <li><a href="#autora">{{ 'about_writer' | translate }}</a></li>
+            <li><a href="#noticias">{{ 'news' | translate }}</a></li>
+            <li><a href="#footer">{{ 'contact' | translate }}</a></li>
+          </ul>
+          <a href="#" class="close">Close</a>
+        </div>
+      </nav>
 
       <!-- Banner -->
-        <section id="banner">
-          <div class="inner">
-            <h2>Manus Dei</h2>
-          </div>
-        </section>
+      <section id="banner">
+        <div class="inner">
+          <h2 class="title">Manus Dei</h2>
+          <h3 class="subtitle">Cómo acceder a nuestra Esencia Divina</h3>
+        </div>
+      </section>
 
       <!-- Wrapper -->
-        <section id="wrapper">
-
-          <!-- One -->
-            <section id="libro" class="wrapper spotlight style1">
-              <div class="inner">
-                <a href="#" class="image"><img src="assets/images/pic01.jpg" alt="" /></a>
-                <div class="content">
-                  <h2 class="major">Sobre el Libro</h2>
-                  <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-                  <a href="#" class="special">Learn more</a>
-                </div>
-              </div>
-            </section>
-
-          <!-- Two -->
-            <section id="autora" class="wrapper alt spotlight style2">
-              <div class="inner">
-                <a href="#" class="image"><img src="assets/images/pic02.jpg" alt="" /></a>
-                <div class="content">
-                  <h2 class="major">Sobre la Autora</h2>
-                  <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-                  <a href="#" class="special">Learn more</a>
-                </div>
-              </div>
-            </section>
-
-          <!-- Three -->
-            <section id="noticias" class="wrapper spotlight style3">
-              <div class="inner">
-                <a href="#" class="image"><img src="assets/images/pic03.jpg" alt="" /></a>
-                <div class="content">
-                  <h2 class="major">Noticias</h2>
-                  <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-                  <a href="#" class="special">Learn more</a>
-                </div>
-              </div>
-            </section>
-
-
-        </section>
-
-      <!-- Footer -->
-        <section id="footer">
+      <section id="wrapper">
+        <!-- One -->
+        <section id="libro" class="wrapper spotlight style1">
           <div class="inner">
-            <h2 class="major">Contacto</h2>
-            <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-            <form method="post" action="#">
-              <div class="field">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" />
-              </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="4"></textarea>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="Send Message" /></li>
-              </ul>
-            </form>
-            <ul class="contact">
-              <li class="fa-home">
-                Untitled Inc<br />
-                1234 Somewhere Road Suite #2894<br />
-                Nashville, TN 00000-0000
-              </li>
-              <li class="fa-phone">(000) 000-0000</li>
-              <li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
-              <li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-              <li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
-              <li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-            </ul>
+            <div class="content">
+              <h2 class="major">{{ 'about_book' | translate }}</h2>
+              <paragraphs data-text="'about_book.text' | translate" classname="paragraph"></paragraphs>
+            </div>
           </div>
         </section>
 
-    </div>
+        <!-- Two -->
+        <section id="autora" class="wrapper alt spotlight style2">
+          <div class="inner">
+            <div class="content">
+              <h2 class="major">{{ 'about_writer' | translate }}</h2>
+              <paragraphs data-text="'about_writer.text' | translate" classname="paragraph"></paragraphs>
+            </div>
+            <div class="author-photo"></div>
+          </div>
+        </section>
 
+        <!-- Three -->
+        <section id="noticias" class="wrapper spotlight style3">
+          <div class="inner">
+            <div class="content">
+              <div class="news-wrapper">
+                <h2 class="major">{{ 'news' | translate }}</h2>
+                <p class="news-date">23/12/2016</p>
+                <p class="news-text">Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+        <div class="inner">
+          <h2 class="major">{{ 'contact' | translate }}</h2>
+          <p class="contact-text">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            Podés contactarnos escribiendo a: 
+            <a href="#">manusdei@manusdei.com.ar</a>
+            o a través de nuestro formulario de contacto.
+          </p>
+          <form ng-submit="sendContactEmail()">
+            <div class="field-wrapper">
+              <div class="field">
+                <label for="name">{{ 'contact.name' | translate }}</label>
+                <input type="text" name="name" id="name" ng-model="contact.name"/>
+              </div>
+              <div class="field">
+                <label for="email">{{ 'contact.email' | translate }}</label>
+                <input type="email" name="email" id="email" ng-model="contact.email"/>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <div class="field">
+                <label for="message">{{ 'contact.message' | translate }}</label>
+                <textarea name="message" id="message" rows="4" ng-model="contact.message"></textarea>
+              </div>
+            </div>
+            <ul class="actions">
+              <li><input type="submit" ng-value="'contact.send' | translate"/></li>
+            </ul>
+          </form>
+          <div class="confirmation-message">
+            <p class="success-message initially-hidden">Gracias por escribirnos! Tu mensaje fue enviado con éxito, te contactaremos en breve.</p>
+            <p class="error-message initially-hidden">Hubo un error al enviar su mensaje. Por favor inténtelo nuevamente más tarde.</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
