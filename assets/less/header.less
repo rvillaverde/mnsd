@@ -1,5 +1,11 @@
 @import 'blocks.less';
 
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #mobile-menu {
   display: none;
 
@@ -16,12 +22,21 @@
   }
 }
 
+.menu-items {
+  display: flex;
+  padding: 0;
+}
+
 .menu-item {
   display: inline-block;
   list-style: none;
   transition: 1s all;
   opacity: 0.6;
   cursor: pointer;
+  font-size: 1.5vw;
+  flex-grow: 1;
+  text-align: center;
+  padding: 0 1em;
 
   &:hover {
     opacity: 1;

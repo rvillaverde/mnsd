@@ -5,7 +5,6 @@ module.exports = ['$scope', '$http', '$translate', 'newsService',
     newsService.getNews()
     .then(function(news) {
       $scope.news = news;
-      console.log(news);
       $scope.loading = true;
       if(!$scope.$$phase) {
         $scope.$apply();
@@ -21,7 +20,6 @@ module.exports = ['$scope', '$http', '$translate', 'newsService',
     $scope.selectedLanguage = $translate.use();
 
     $scope.changeLanguage = function(key) {
-      console.log('changeLanguage');
       $translate.use(key);
       $scope.selectedLanguage = key;
     };
@@ -41,10 +39,8 @@ module.exports = ['$scope', '$http', '$translate', 'newsService',
     }
 
     $scope.sendContactEmail = function() {
-      console.log('sendContactEmail');
 
       if(!$scope.validateContact()) {
-        console.log('invalid contact');
         return;
       }
 

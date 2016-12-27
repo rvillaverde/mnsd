@@ -37,10 +37,12 @@
   border-radius: 100%;
   background-position: center;
   background-size: cover;
-  margin: 0 2em;
+  margin-left: 2em;
 
   @media @small-screen {
     margin: 2em auto;
+    max-height: 12em;
+    max-width: 12em;
   }
 }
 
@@ -114,7 +116,7 @@ h2.major {
 }
 
 #background {
-  background-image: url("assets/images/background-web.png");
+  background-image: url("/assets/images/background-web.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,7 +128,7 @@ h2.major {
   z-index: -999999999;
 
   @media screen and (max-width: 320px) {
-    background-image: url("assets/images/background-mobile.png");
+    background-image: url("/assets/images/background-mobile.png");
   }
 }
 
