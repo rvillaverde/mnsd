@@ -33,7 +33,7 @@
   transition: 1s all;
   opacity: 0.6;
   cursor: pointer;
-  font-size: 1.5vw;
+  font-size: 1em;
   flex-grow: 1;
   text-align: center;
   padding: 0 1em;
@@ -45,6 +45,10 @@
   &.dropdown {
     display: none;
     position: relative;
+  }
+
+  @media screen and (max-width: 960px) {
+    font-size: 1.5vw;
   }
 }
 
