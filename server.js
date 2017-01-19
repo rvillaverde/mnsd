@@ -5,8 +5,7 @@ var port =  process.env.PORT || 3000;
 var mailgunUrl = "sandboxde8961b3625b4f71a2d257ddd2b93cf2.mailgun.org";
 var mailgunApiKey = "key-dc4d73f26e199ce5fc0c5e39947716c6";
 var mailgun = require('mailgun-js')({apiKey: mailgunApiKey, domain: mailgunUrl});
-var email = 'romina.villaverde@gmail.com';
-
+var email = 'manusdei@manusdei.com.ar';
 app.use(express.static(__dirname));
 
 app.post('/send', function(req, res) {
